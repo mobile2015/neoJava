@@ -1,0 +1,33 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<beans:bean id="cPasswordEncoder" class="pl.edu.agh.siwpia.neo4j_web_app.security.CPasswordEncoder" />
+	<beans:bean id="authenticationService" class="pl.edu.agh.siwpia.neo4j_web_app.security.AuthenticationService" />
+
+	<authentication-manager alias="authenticationManager">
+		<authentication-provider user-service-ref='authenticationService'>
+			<password-encoder ref="cPasswordEncoder" />
+		</authentication-provider>
+	</authentication-manager>
+
+	<http use-expressions="true">
+		<!-- BEGIN URLS -->
+		<intercept-url pattern="/**" access="permitAll" />
+		<!-- END URLS -->
+
+		<!-- BEGIN CONFIG -->
+		<remember-me />
+		<csrf disabled="true" />
+		<form-login login-processing-url="/login"
+			authentication-failure-url="/login/fail" login-page="/login/page"
+			default-target-url="/" />
+		<logout logout-success-url="/" delete-cookies="JSESSIONID"
+			invalidate-session="true" />
+		<!-- END CONFIG -->
+	</http>
+
+</beans:beans>
