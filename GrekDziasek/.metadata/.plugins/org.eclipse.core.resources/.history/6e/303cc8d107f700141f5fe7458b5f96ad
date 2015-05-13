@@ -1,0 +1,22 @@
+package hello;
+
+@NodeEntity
+public class Movie {
+
+  @GraphId Long id;
+
+  @Indexed(type = FULLTEXT, indexName = "search")
+  String title;
+
+  Person director;
+
+  @RelatedTo(type="ACTS_IN", direction = INCOMING)
+  Set<Person> actors;
+
+  @RelatedToVia(type = "RATED")
+  Iterable<Rating> ratings;
+
+  @Query("start movie=node({self}) match 
+          movie-->genre<--similar return similar")
+  Iterable<Movie> similarMovies;
+}

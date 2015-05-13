@@ -1,0 +1,12 @@
+package hello;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface PersonRepository extends CrudRepository<Person, String> {
+
+    Person findByName(String name);
+
+    Iterable<GroupUsers> findByTeammatesName(String name);
+    
+    Iterable<Person> findByGroupId(int groupId);
+}
