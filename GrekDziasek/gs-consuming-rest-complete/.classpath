@@ -22,5 +22,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="D:/Pobrane/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="D:/Pobrane/junit-4.12.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
