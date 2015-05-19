@@ -21,7 +21,7 @@
 <sec:authorize access="isAuthenticated()">
 <h2>You are logged in as <sec:authentication property="principal.username" />   </h2>
 <h4>Write a query <a href="${pageContext.request.contextPath}/query">Query</a></h4>
-
+<h4>Add Image <a href="${pageContext.request.contextPath}/add_image">Image</a></h4>
 
 </sec:authorize>
 
