@@ -24,6 +24,7 @@
 
 <sec:authorize access="isAuthenticated()">
 <h4><a href="${pageContext.request.contextPath}/logout">Logout</a></h4>
+<h4><a href="${pageContext.request.contextPath}/list/users">List Users</a></h4>
 </sec:authorize>
 <sec:authorize access="!isAuthenticated()">
 <h4><a href="${pageContext.request.contextPath}/login/page">Login</a></h4>

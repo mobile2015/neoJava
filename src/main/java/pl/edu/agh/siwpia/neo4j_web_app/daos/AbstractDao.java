@@ -1,7 +1,10 @@
 package pl.edu.agh.siwpia.neo4j_web_app.daos;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.metamodel.SingularAttribute;
+
 
 public abstract interface AbstractDao<T> {
 
@@ -18,4 +21,6 @@ public abstract interface AbstractDao<T> {
 	T selectEntityBy(SingularAttribute attribute, Object value);
 
 	T update(T entity);
+
+	<T> List<T> selectEntities();
 }

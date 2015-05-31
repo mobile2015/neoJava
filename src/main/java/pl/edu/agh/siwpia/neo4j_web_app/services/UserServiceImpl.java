@@ -83,5 +83,9 @@ public class UserServiceImpl extends AbstractServiceImpl<User> implements UserSe
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		return userDao.selectEntityBy(User_.email, auth.getName());
 	}
+	
+	public List<User> selectAll(){
+		return (List) userDao.selectEntities();
+	}
 
 }

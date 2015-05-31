@@ -22,10 +22,10 @@
 	<h1>Hello! Log in.</h1>
 
 	<form action="${pageContext.request.contextPath}/login" method="POST">
-		<label>E-mail <input type="email" placeholder="E-mail"
+		<label>E-mail<input type="email" placeholder="E-mail"
 			name="username" />
-		</label> <br> <label>Password <input type="password"
-			name="password" placeholder="Password" />
+		</label> <br> <label>Password<input type="password"
+			id="login-password" name="password" placeholder="Password" />
 		</label> <br />
 		<button type="submit">Zaloguj</button>
 	</form>

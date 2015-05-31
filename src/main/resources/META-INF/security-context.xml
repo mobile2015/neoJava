@@ -5,10 +5,8 @@
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security.xsd">
 
-	<beans:bean id="cPasswordEncoder"
-		class="pl.edu.agh.siwpia.neo4j_web_app.security.CPasswordEncoder" />
-	<beans:bean id="authenticationService"
-		class="pl.edu.agh.siwpia.neo4j_web_app.security.AuthenticationService" />
+	<beans:bean id="cPasswordEncoder" class="pl.edu.agh.siwpia.neo4j_web_app.security.CPasswordEncoder" />
+	<beans:bean id="authenticationService" class="pl.edu.agh.siwpia.neo4j_web_app.security.AuthenticationService" />
 
 	<authentication-manager alias="authenticationManager">
 		<authentication-provider user-service-ref='authenticationService'>
@@ -25,11 +23,11 @@
 		<remember-me />
 		<csrf disabled="true" />
 		<form-login login-processing-url="/login"
-			password-parameter="password" username-parameter="username"
-			login-page="/login/page" authentication-failure-url="/login/failed"
+			authentication-failure-url="/login/fail" login-page="/login/page"
 			default-target-url="/" />
 		<logout logout-success-url="/" delete-cookies="JSESSIONID"
 			invalidate-session="true" />
 		<!-- END CONFIG -->
 	</http>
+
 </beans:beans>

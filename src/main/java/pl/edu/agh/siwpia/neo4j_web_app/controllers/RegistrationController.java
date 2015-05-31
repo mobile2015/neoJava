@@ -31,6 +31,7 @@ public class RegistrationController {
 		if (!result.hasErrors()) {
 			User user = userService.registerUser(dto);
 			userService.grantRole(user.getId(), UserRole.USER);
+			
 			modelMap.addAttribute("userEmail", user.getEmail());
 			modelMap.addAttribute("userId", user.getId());
 			return "registered";

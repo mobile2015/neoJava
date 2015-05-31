@@ -1,5 +1,7 @@
 package pl.edu.agh.siwpia.neo4j_web_app.services;
 
+import java.util.List;
+
 import pl.edu.agh.siwpia.neo4j_web_app.dtos.RegistrationDto;
 import pl.edu.agh.siwpia.neo4j_web_app.entities.User;
 import pl.edu.agh.siwpia.neo4j_web_app.enums.UserRole;
@@ -13,5 +15,6 @@ public interface UserService extends AbstractService<User> {
 	void revokeRole(Long userId, UserRole role);
 
 	User select();
-
+	
+	List<User> selectAll();
 }
